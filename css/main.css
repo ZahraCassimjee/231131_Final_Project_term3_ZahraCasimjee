@@ -1,0 +1,23 @@
+.carousel-item {
+    position: relative;
+    height: 650px;
+}
+
+
+
+.image-overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 200px;
+    margin-right: 50px;
+    top: 0;
+    right: 0;
+    height: 50%;
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent background */
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+
