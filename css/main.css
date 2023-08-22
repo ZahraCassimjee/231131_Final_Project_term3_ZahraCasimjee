@@ -8,16 +8,18 @@
 .image-overlay {
     position: absolute;
     display: flex;
-    align-items: center;
+    color: #F0EBD8;
+    align-items:end;
     justify-content: flex-end;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-right: 50px;
     top: 0;
     right: 0;
     height: 50%;
-    width: 30%;
-    background-color: rgba(255, 255, 255, 0); /* Add a semi-transparent background */
-    padding-right: 100px;
+    width: 20%;
+    background-color: #f0ebd871; /* Add a semi-transparent background */
+    padding-right: 50px;
+    padding-left: 20px;
     box-sizing: border-box;
 }
 
@@ -46,3 +48,10 @@
 }
 
 
+#weather-widget {
+    position: absolute;
+    padding-top: 50px; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    
+}
