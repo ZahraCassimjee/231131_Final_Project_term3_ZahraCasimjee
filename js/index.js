@@ -84,9 +84,9 @@ const trips = [
 ];
 
 $(document).ready(function() {
-    // ... (your existing code)
+   
 
-    // Add an event listener for the price filter dropdown
+    //  price filter dropdown
     $("#price-filter").change(function() {
         const sortByPrice = $("#price-filter").val();
         if (sortByPrice === "high-to-low") {

@@ -42,6 +42,11 @@
     height:200px;
 }
 
+.filter{
+    margin-left: 10px;
+    padding-top: 50px;
+}
+
 .btn{
     background-color: #C9A040;
     border-color: #C9A040;
@@ -54,4 +59,27 @@
     left: 50%; 
     transform: translate(-50%, -50%);
     
+}
+
+.remove-btn{
+    background-color: #C9A040;
+    border-color: #C9A040;
+}
+
+.paytable{
+ margin-left: 200px;
+ 
+}
+
+.total{
+  
+    background-color: #466886;
+    
+}
+
+.sectionhead{
+    align-items: center;
+    padding-top: 50px;
+    margin-left: 500px;
+    margin-bottom: 100px;
 }

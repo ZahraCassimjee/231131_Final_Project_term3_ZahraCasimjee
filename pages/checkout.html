@@ -46,40 +46,35 @@
       </nav>
 
 <!-- page heading -->
-<h2>Checkout</h2>
+<div class="sectionhead">
+  <h2 >Checkout</h2>
+</div>
+
 
 <!-- Table -->
 <div class="container">
+  <div class="row">
     <div class="paytable">
-        <div class="col-8">
-            <table class="table">
+      
+        <div class="col-6">
+            <table id="checkoutTable">
                 <thead>
                   <tr>
                     <th scope="col">Trip code</th>
-                    <th scope="col">Qty</th>
                     <th scope="col">Cruise name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Remove</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <!-- <tr>
                     <th scope="row">CAR123</th>
                     <td>2</td>
                     <td>Caribbean Cruise</td>
                     <td>R24000</td>
+                    <btn id="remove"> - </btn>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  -->
                 </tbody>
               </table>
         </div>
@@ -88,12 +83,17 @@
     </div>
     <!-- Totals -->
     <div class="total">
-        <div class="col-4"> </div>
-<h1>Your Purchase Total: </h1>
-<br>
-<h1>R88999.00</h1>
+        <div class="col-6"> </div>
+            <h1>Your Purchase Total: </h1>
+            <br>
+            <h1>R88999.00</h1>
+            <button type="button" class="btn ">Pay Now</button>
     </div>
 </div>
+
+</div>
+
+
 
 
 </body>
