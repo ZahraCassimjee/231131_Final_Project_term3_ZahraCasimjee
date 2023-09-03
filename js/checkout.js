@@ -1,74 +1,87 @@
 const purchaseTrip = [
     {
-        
         name: "Caribbean Cruise",
-        price: "12000",
+        price: 12000,
         tripCode: "CAR123",
-        remove:"-"
-        
+        remove: "-"
     },
     {
         name: "Mediterranean Adventure",
-        price: "15000",
+        price: 15000,
         tripCode: "MED456",
-        remove:"-"
-
-     
+        remove: "-"
     },
     {
         name: "Alaskan Expedition",
-        price: "18000",
+        price: 18000,
         tripCode: "ALA789",
-        remove:"-"
-
+        remove: "-"
     },
     {
         name: "Tropical Paradise",
-        price: "14000",
+        price: 14000,
         tripCode: "TRO101",
-        remove:"-"
-
+        remove: "-"
     },
     {
         name: "European Escapade",
-        price: "25000",
+        price: 25000,
         tripCode: "EUR202",
-        remove:"-"
-
+        remove: "-"
     },
     {
         name: "Exotic Asia Tour",
-        price: "22000",
+        price: 22000,
         tripCode: "ASI303",
-        remove:"-"
-
+        remove: "-"
     },
     {
         name: "Australian Adventure",
-        price: "19000",
+        price: 19000,
         tripCode: "AUS404",
-        remove:"-"
-
+        remove: "-"
     },
     {
         name: "South American Discovery",
-        price: "23000",
+        price: 23000,
         tripCode: "SAM505",
-        remove:"-"
-
+        remove: "-"
     },
     {
         name: "Arctic Expedition",
-        price: "28000",
+        price: 28000,
         tripCode: "ARC606",
-        remove:"-"
-
+        remove: "-"
     }
 ];
 
 $(document).ready(function () {
-    // Initialize wishlist array to store plant data
+    // Initialize wishlist array to store trip data
     var checkout = [];
+    var tripTotal = 0.00;
+    const purchaseTotalElement = document.getElementById("purchaseTotal");
+    const payNowButtonElement = document.getElementById("payNowButton");
+    const removeAllButtonElement = document.getElementById("removeAllButton");
+
+    function payNowButtonClicked() {
+        alert(`Payment for R ${tripTotal} successful!`);
+    }
+    payNowButtonElement.onclick = () => payNowButtonClicked();
+
+    function removeAllButtonClicked() {
+        checkout = [];
+        updateCheckoutTable();
+    }
+    removeAllButtonElement.onclick = () => removeAllButtonClicked();
+
+    function updatePurchaseTotal() {
+        tripTotal = 0;
+
+        checkout.forEach((trip)=>tripTotal += trip.price);
+
+        purchaseTotalElement.innerHTML = `R ${tripTotal}`;
+    }
+
 
     // Function to add a plant to the wishlist
     function addTripToCheckout(loadTripOptions) {
@@ -89,6 +102,7 @@ $(document).ready(function () {
     function removeTripFromCheckout(index) {
         checkout.splice(index, 1);
         updateCheckoutTable();
+        updatePurchaseTotal();
     }
 
     // Function to update the wishlist table
@@ -101,14 +115,14 @@ $(document).ready(function () {
             var checkoutT = checkout[i];
             var row = $("<tr>");
 
-              // Add trip code column
-              var codeCell = $("<td>").text(checkoutT.tripCode);
-              row.append(codeCell); 
+            // Add trip code column
+            var codeCell = $("<td>").text(checkoutT.tripCode);
+            row.append(codeCell);
 
             // Add trip name column
             var nameCell = $("<td>").text(checkoutT.name);
             row.append(nameCell);
-            
+
             // Add trip price column
             var costCell = $("<td>").text(checkoutT.price);
             row.append(costCell);
@@ -128,16 +142,18 @@ $(document).ready(function () {
         }
     }
 
-   
+
+
+    addTripToCheckout({ tripCode: "CAR123", name: "Caribbean Cruise", price: 12000 });
+    addTripToCheckout({ tripCode: "MED456", name: "Mediterranean Adventure", price: 15000 });
+    addTripToCheckout({ tripCode: "ALA789", name: "Alaskan Expedition", price: 18000 });
+    addTripToCheckout({ tripCode: "TRO101", name: "Tropical Paradise", price: 14000 });
+    addTripToCheckout({ tripCode: "EUR202", name: "European Escapade", price: 25000 });
+    addTripToCheckout({ tripCode: "ASI303", name: "Exotic Asia Tour", price: 22000 });
+    addTripToCheckout({ tripCode: "AUS404", name: "Australian Adventure", price: 19000 });
+    addTripToCheckout({ tripCode: "SAM50", name: "South American Discovery", price: 23000 });
+    addTripToCheckout({ tripCode: "ARC606", name: "Arctic Expedition", price: 28000 });
     
-    addTripToCheckout({ tripCode: "CAR123", name: "Caribbean Cruise", price: "R12000" });
-    addTripToCheckout({ tripCode: "MED456", name: "Mediterranean Adventure", price: "R15000" });
-    addTripToCheckout({ tripCode: "ALA789", name: "Alaskan Expedition", price: "R18000" });
-    addTripToCheckout({ tripCode: "TRO101", name: "Tropical Paradise", price: "R14000" });
-    addTripToCheckout({ tripCode: "EUR202", name: "European Escapade", price: "R25000" });
-    addTripToCheckout({ tripCode: "ASI303", name: "Exotic Asia Tour", price: "R22000" });
-    addTripToCheckout({ tripCode: "AUS404", name: "Australian Adventure", price: "R19000" });
-    addTripToCheckout({ tripCode: "SAM50", name: "South American Discovery", price: "R23000" });
-    addTripToCheckout({ tripCode: "ARC606", name: "Arctic Expedition", price: "R28000" });
+    updatePurchaseTotal();
 });
 
