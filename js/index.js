@@ -84,22 +84,23 @@ const trips = [
 ];
 
 $(document).ready(function() {
-    // ... (your existing code)
 
-    // Add an event listener for the price filter dropdown
-    $("#price-filter").change(function() {
-        const sortByPrice = $("#price-filter").val();
-        if (sortByPrice === "high-to-low") {
-            trips.sort((a, b) => b.price - a.price);
-        } else if (sortByPrice === "low-to-high") {
-            trips.sort((a, b) => a.price - b.price);
-        }
-        // Call loadTripOptions to re-render the sorted trips
         loadTripOptions();
     });
-});
+
     
+    $("#tripCardTemplate").on('click', '.card', function(){
     
+      // Toggle the price & description text
+      $(this).find("#priceText").toggle();
+      $(this).find("#destinationText").toggle();
+    
+      // Resize the image to fit the additional content
+      $(this).find(".card-img-top").toggleClass("small");
+    
+    });
+
+
     function loadTripOptions () {
         for (let i = 0; i < trips.length; i++) {
             console.log(trips[i]);
@@ -118,7 +119,7 @@ $(document).ready(function() {
     
             $(currentChild).find("#durationText").text(trips[i].duration);
 
-            $(currentChild).find("#dateOfDepartureTextext").text( trips[i].dateOfDeparture);
+            $(currentChild).find("#dateOfDepartureText").text( trips[i].dateOfDeparture);
 
             $(currentChild).find("#tripCodeText").text(trips[i].tripCode);
             
@@ -126,21 +127,6 @@ $(document).ready(function() {
         }
     }
     
-    
-    $("#plantsContainer").on('click', '.card', function(){
-    
-      // Toggle the price & description text
-      $(this).find("#priceText").toggle();
-      $(this).find("#descriptionText").toggle();
-    
-      // Resize the image to fit the additional content
-      $(this).find(".card-img-top").toggleClass("small");
-    
-    });
-
-
-    
-    
 
     
 
@@ -149,24 +135,3 @@ $(document).ready(function() {
 
 
 
-
-
-// $(document).ready(function() {
-//     const tripContainer = $("#trip-container");
-
-//     trips.forEach(function(trip) {
-//         const card = `
-//             <div class="card mb-3">
-//                 <div class="card-body">
-//                     <h5 class="card-title">${trip.name}</h5>
-//                     <p class="card-text"><strong>Destination:</strong> ${trip.destination}</p>
-//                     <p class="card-text"><strong>Price:</strong> ${trip.price}</p>
-//                     <p class="card-text"><strong>Date of Departure:</strong> ${trip.dateOfDeparture}</p>
-//                     <p class="card-text"><strong>Duration:</strong> ${trip.duration}</p>
-//                     <p class="card-text"><strong>Trip Code:</strong> ${trip.tripCode}</p>
-//                 </div>
-//             </div>
-//         `;
-//         tripContainer.append(card);
-//     });
-// });
