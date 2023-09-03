@@ -83,39 +83,21 @@ const trips = [
     }
 ];
 
-// filter
+$(document).ready(function() {
+    // ... (your existing code)
 
-// $(document).ready(function() {
-//     const tripContainer = $("#trips-container");
-
-//     function filterTrips(filter) {
-//         tripContainer.empty(); // Clear existing trips
-        
-//         trips.forEach(function(trip) {
-//             if (filter === 'all' ||
-//                 (filter === 'short' && parseInt(trip.duration) <= 5) ||
-//                 (filter === 'long' && parseInt(trip.duration) > 5) ||
-//                 (filter === 'single' && (trip.destination === 'Hawaii, USA' || trip.destination === 'Alaska, USA' || trip.destination === 'Australia')) ||
-//                 (filter === 'multi' && (trip.destination !== 'Hawaii, USA' && trip.destination !== 'Alaska, USA' && trip.destination !== 'Australia')) ||
-//                 (filter === 'round' && (trip.name === 'South American Discovery' || trip.name === 'Exotic Asia Tour' || trip.name === 'Mediterranean Adventure')) ||
-//                 (filter === 'special')
-//             ) {
-//                 ;
-               
-//             }
-//         });
-//     }
-
-//     // Initial display of all trips
-//     filterTrips('all');
-
-//     // Handle filter change event
-//     $("#trip-filter").change(function() {
-//         const selectedFilter = $(this).val();
-//         filterTrips(selectedFilter);
-//     });
-// });
-
+    // Add an event listener for the price filter dropdown
+    $("#price-filter").change(function() {
+        const sortByPrice = $("#price-filter").val();
+        if (sortByPrice === "high-to-low") {
+            trips.sort((a, b) => b.price - a.price);
+        } else if (sortByPrice === "low-to-high") {
+            trips.sort((a, b) => a.price - b.price);
+        }
+        // Call loadTripOptions to re-render the sorted trips
+        loadTripOptions();
+    });
+});
     
     
     function loadTripOptions () {
@@ -145,7 +127,7 @@ const trips = [
     }
     
     
-    $("#TripsContainer").on('click', '.card', function(){
+    $("#plantsContainer").on('click', '.card', function(){
     
       // Toggle the price & description text
       $(this).find("#priceText").toggle();
