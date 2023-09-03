@@ -1,3 +1,7 @@
+body{
+    
+font-family: 'Source Sans 3', sans-serif;
+}
 .carousel-item {
     position: relative;
     height: 650px;
@@ -82,4 +86,20 @@
     padding-top: 50px;
     margin-left: 500px;
     margin-bottom: 100px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.sectionheed{
+    align-items: center;
+    padding-top: 50px;
+    text-align: center;
+    margin-bottom: 100px;
+    font-family: 'Libre Baskerville', serif;
+}
+.sectionheedd{
+    align-items: center;
+    padding-top: 200px;
+    text-align: center;
+    margin-bottom: 200px;
+    font-family: 'Libre Baskerville', serif;
 }

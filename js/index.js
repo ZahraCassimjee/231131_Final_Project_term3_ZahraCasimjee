@@ -85,47 +85,36 @@ const trips = [
 
 // filter
 
-$(document).ready(function() {
-    const tripContainer = $("#trips-container");
+// $(document).ready(function() {
+//     const tripContainer = $("#trips-container");
 
-    function filterTrips(filter) {
-        tripContainer.empty(); // Clear existing trips
+//     function filterTrips(filter) {
+//         tripContainer.empty(); // Clear existing trips
         
-        trips.forEach(function(trip) {
-            if (filter === 'all' ||
-                (filter === 'short' && parseInt(trip.duration) <= 5) ||
-                (filter === 'long' && parseInt(trip.duration) > 5) ||
-                (filter === 'single' && (trip.destination === 'Hawaii, USA' || trip.destination === 'Alaska, USA' || trip.destination === 'Australia')) ||
-                (filter === 'multi' && (trip.destination !== 'Hawaii, USA' && trip.destination !== 'Alaska, USA' && trip.destination !== 'Australia')) ||
-                (filter === 'round' && (trip.name === 'South American Discovery' || trip.name === 'Exotic Asia Tour' || trip.name === 'Mediterranean Adventure')) ||
-                (filter === 'special')
-            ) {
-                const card = `
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">${trip.name}</h5>
-                            <p class="card-text"><strong>Destination:</strong> ${trip.destination}</p>
-                            <p class="card-text"><strong>Price:</strong> R ${trip.price}</p>
-                            <p class="card-text"><strong>Date of Departure:</strong> ${trip.dateOfDeparture}</p>
-                            <p class="card-text"><strong>Duration:</strong> ${trip.duration} days</p>
-                            <p class="card-text"><strong>Trip Code:</strong> ${trip.tripCode}</p>
-                        </div>
-                    </div>
-                `;
-                tripContainer.append(card);
-            }
-        });
-    }
+//         trips.forEach(function(trip) {
+//             if (filter === 'all' ||
+//                 (filter === 'short' && parseInt(trip.duration) <= 5) ||
+//                 (filter === 'long' && parseInt(trip.duration) > 5) ||
+//                 (filter === 'single' && (trip.destination === 'Hawaii, USA' || trip.destination === 'Alaska, USA' || trip.destination === 'Australia')) ||
+//                 (filter === 'multi' && (trip.destination !== 'Hawaii, USA' && trip.destination !== 'Alaska, USA' && trip.destination !== 'Australia')) ||
+//                 (filter === 'round' && (trip.name === 'South American Discovery' || trip.name === 'Exotic Asia Tour' || trip.name === 'Mediterranean Adventure')) ||
+//                 (filter === 'special')
+//             ) {
+//                 ;
+               
+//             }
+//         });
+//     }
 
-    // Initial display of all trips
-    filterTrips('all');
+//     // Initial display of all trips
+//     filterTrips('all');
 
-    // Handle filter change event
-    $("#trip-filter").change(function() {
-        const selectedFilter = $(this).val();
-        filterTrips(selectedFilter);
-    });
-});
+//     // Handle filter change event
+//     $("#trip-filter").change(function() {
+//         const selectedFilter = $(this).val();
+//         filterTrips(selectedFilter);
+//     });
+// });
 
     
     
@@ -156,7 +145,7 @@ $(document).ready(function() {
     }
     
     
-    $("#plantsContainer").on('click', '.card', function(){
+    $("#TripsContainer").on('click', '.card', function(){
     
       // Toggle the price & description text
       $(this).find("#priceText").toggle();
